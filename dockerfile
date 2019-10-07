@@ -22,5 +22,3 @@ WORKDIR /app
 
 RUN go mod download
 RUN go build -v
-RUN ls
-CMD ["/app/backend"]
