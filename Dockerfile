@@ -1,12 +1,7 @@
-FROM golang:1.12.9-alpine3.9
+FROM docker:latest
 
 RUN apk update && \
-    apk add bash ca-certificates git gcc g++ libc-dev
-
-EXPOSE 3306
-
-RUN mkdir /app
-
-ADD . /app
-
-WORKDIR /app
+    apk add --no-cache python py-pip gcc g++ \
+    libc-dev python3-dev python2-dev libffi-dev \
+    openssl openssl-dev make && \
+    pip install --no-cache-dir docker-compose
